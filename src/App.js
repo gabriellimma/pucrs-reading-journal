@@ -1,14 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import InnerComponent from './components/InnerComponent';
+import GreetingsComponent from './components/GreetingsComponent/GreetingsComponent';
+import person from './data/person';
 
 function App() {
+
+  const { name, age, gender } = person;
+
   return (
     <div className="App">
-      <InnerComponent
-        logo={logo}
-        message="essa é uma mensagem"
-        btnMessage="Esse é um botão"
+      <GreetingsComponent
+        name={name}
+        age={age}
+        gender={gender}
       />
     </div>
   );
