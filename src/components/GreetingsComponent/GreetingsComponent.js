@@ -7,21 +7,11 @@ import React from "react";
  */
 function GreetingsComponent(props) {
 
-    let greeting = `Bem Vind${props.gender === 'M'
-        ? 'o'
-        : props.gender === 'F'
-            ? 'a'
-            : 'x'}`;
+    let greeting = `Olá Professor`
     return (
         <h2 className="App-header">
             <p>
                 <b>{greeting}</b>, {props.name}
-            </p>
-            <p>
-                idade: {props.age}
-            </p>
-            <p>
-                gênero: {props.gender}
             </p>
         </h2>
     )

@@ -1,6 +1,8 @@
 function NavbarComponent(props) {
     return (
-        <nav></nav>
+        <nav>
+            
+        </nav>
     )
 }
 
