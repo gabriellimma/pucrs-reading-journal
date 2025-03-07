@@ -3,11 +3,11 @@ function NavbarComponent(props) {
         <nav style={{padding: "1em", backgroundColor: "#282c34", color: "white"}}>
             {props.menuItems.map((item) =>
                 <a 
-                    href="#_" 
+                    href={item.menuLink} 
                     style={{padding: "1em", marginTop: "1em", color: "white", fontWeight: "bold", minHeight: "3vh"}}
-                    key={item}
+                    key={item.menuName}
                 >
-                    {item}
+                    {item.menuName}
                 </a>
             )}
         </nav>

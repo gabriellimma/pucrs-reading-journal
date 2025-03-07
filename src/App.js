@@ -4,12 +4,29 @@ import NavbarComponent from './components/NavBar/NavbarComponent';
 
 function App() {
 
-  const menuItems = ["Inicio", "Sobre", "Lista de Livros", "Cadastrar Livro"]
+  const newMenuItens = [
+    {
+      menuName: "Inicio",
+      menuLink: "home"
+    },
+    {
+      menuName: "Sobre",
+      menuLink: "#_"
+    },
+    {
+      menuName: "Lista de Livros",
+      menuLink: "#_"
+    },
+    {
+      menuName: "Cadastrar Livro",
+      menuLink: "#_"
+    }
+  ]
 
   return (
     <div className="App">
       <NavbarComponent
-        menuItems = {menuItems}
+        menuItems={newMenuItens}
       />
       <InicioComponent
         message={"Olá, Bem-vindo(a) a biblioteca open source."}
