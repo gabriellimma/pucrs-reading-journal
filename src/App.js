@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import './App.css';
+import BookFormComponent from './components/BookForm/BookFormComponent';
 import BookListComponent from './components/BookList/BookListComponent';
 import InicioComponent from './components/InicioComponent/InicioComponent';
 import NavbarComponent from './components/NavBar/NavbarComponent';
-import booklist from './data/booklist.json'
+import rawBooklist from './data/booklist.json'
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
     }
   ]
 
+  const [booklist, setBookList] = useState(rawBooklist)
+
   return (
     <div className="App">
       <NavbarComponent
@@ -35,8 +39,10 @@ function App() {
         paragraph = {"Bem-vindo ao Reading Journal!"}
       />
       <BookListComponent
-        booklist= {booklist}
+        booklist={booklist}
+        setBookList={setBookList}
       />
+      <BookFormComponent />
     </div>
   );
 }
