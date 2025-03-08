@@ -2,7 +2,7 @@ function BookListComponent(props) {
 
     const handleRemoveBook = (isbn) => {
         const bookToDelete = props.booklist.find(book => book.ISBN10 === isbn)
-        if (bookToDelete && window.confirm(`Deseja realmente deletar o livro "${bookToDelete.name}" da lista?`)) {
+        if (bookToDelete && window.confirm(`Deseja realmente deletar o livro "${bookToDelete.nome}" da lista?`)) {
             const newBookList = props.booklist.filter(book => book.ISBN10 !== isbn)
             props.setBookList(newBookList)
         }
@@ -20,10 +20,13 @@ function BookListComponent(props) {
                         <div key={book.ISBN10}>
                             <hr></hr>
                             <h3>
-                                {book.name}
+                                {book.nome}
                             </h3>
                             <p>
                                 <b>Autor:</b> {book.autor}
+                            </p>
+                            <p>
+                                <b>Ano:</b> {book.ano}
                             </p>
                             <p>
                                 <b>categoria:</b> {book.categoria}
@@ -32,13 +35,18 @@ function BookListComponent(props) {
                                 <b>ISBN-10:</b> {book.ISBN10}
                             </p>
                             <a href={book.linkCompra} target="_blank" rel="noopener noreferrer">
-                                <button style={{ color: "green" }}>
+                                <button style={{ color: "green", cursor: "pointer" }}>
                                     comprar
                                 </button>
                             </a>
-                            <button style={{ color: "red" }} onClick={() => { handleRemoveBook(book.ISBN10) }}>
+                            <button style={{ color: "red", cursor: "pointer" }} onClick={() => { handleRemoveBook(book.ISBN10) }}>
                                 remover
                             </button>
+                            <a href={`https://www.google.com/search?q=${book.autor}`} target="_blank" rel="noopener noreferrer">
+                                <button style={{ color: "blue", cursor: "pointer" }}>
+                                    Buscar Autor no Google
+                                </button>
+                            </a>
                         </div>
                     ) :
                     <p>

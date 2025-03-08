@@ -1,29 +1,33 @@
 [
     {
-        "name": "A droga da obediência",
+        "nome": "A droga da obediência",
         "autor": "Pedro Bandeira",
         "ISBN10": "8516095762",
+        "ano": "2014",
         "categoria": "suspense",
         "linkCompra": "https://www.amazon.com.br/droga-obediência-Pedro-Bandeira/dp/8516095762"
     },
     {
-        "name": "Entendendo Algoritmos: Um Guia Ilustrado Para Programadores e Outros Curiosos",
+        "nome": "Entendendo Algoritmos: Um Guia Ilustrado Para Programadores e Outros Curiosos",
         "autor": "Aditya Y. Bhargava",
         "ISBN10": "8575225634",
+        "ano": "2017",
         "categoria": "programação de computadores",
         "linkCompra": "https://www.amazon.com.br/Entendendo-Algoritmos-Ilustrado-Programadores-Curiosos/dp/8575225634"
     },
     {
-        "name": "O Codificador Limpo",
-        "autor":  "Bob Martin",
+        "nome": "O Codificador Limpo",
+        "autor":  "Robert Cecil Martin",
         "ISBN10": "8576086476",
+        "ano": "2012",
         "categoria": "programação de computadores",
         "linkCompra": "https://www.amazon.com.br/Codificador-Limpo-Bob-Martin/dp/8576086476"
     },
     {
-        "name": "Refatoração: Aperfeiçoando o Design de Códigos Existentes",
+        "nome": "Refatoração: Aperfeiçoando o Design de Códigos Existentes",
         "autor":  "Martin Fowler",
         "ISBN10": "8575227246",
+        "ano": "2020",
         "categoria": "programação de computadores",
         "linkCompra": "https://www.amazon.com.br/Refatoração-Aperfeiçoando-Design-Códigos-Existentes/dp/8575227246"
     }
