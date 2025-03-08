@@ -8,9 +8,18 @@ import React from "react";
 function InicioComponent(props) {
 
     return (
-        <h1 className="App-header">
-                {props.message}
-        </h1>
+        <header className="App-header">
+            <h1 >
+                {props.title}
+            </h1>
+            {props.paragraph ?
+                <p>
+                    {props.paragraph}
+                </p> :
+                <>
+                </>
+            }
+        </header>
     )
 }
 

@@ -1,6 +1,8 @@
 import './App.css';
+import BookListComponent from './components/BookList/BookListComponent';
 import InicioComponent from './components/InicioComponent/InicioComponent';
 import NavbarComponent from './components/NavBar/NavbarComponent';
+import booklist from './data/booklist.json'
 
 function App() {
 
@@ -29,7 +31,11 @@ function App() {
         menuItems={newMenuItens}
       />
       <InicioComponent
-        message={"Olá, Bem-vindo(a) a biblioteca open source."}
+        title={"Página Inicial"}
+        paragraph = {"Bem-vindo ao Reading Journal!"}
+      />
+      <BookListComponent
+        booklist= {booklist}
       />
     </div>
   );
