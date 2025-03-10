@@ -29,6 +29,12 @@ function App() {
 
   const [booklist, setBookList] = useState(rawBooklist)
 
+  const handleSetBookList = (newBookList) => {
+    console.log('Atualizando lista de livros:', newBookList);
+    setBookList(newBookList);
+  };
+
+
   return (
     <div className="App">
       <NavbarComponent
@@ -36,13 +42,16 @@ function App() {
       />
       <InicioComponent
         title={"Página Inicial"}
-        paragraph = {"Bem-vindo ao Reading Journal!"}
+        paragraph={"Bem-vindo ao Reading Journal!"}
       />
       <BookListComponent
         booklist={booklist}
-        setBookList={setBookList}
+        setBookList={handleSetBookList}
       />
-      <BookFormComponent />
+      <BookFormComponent
+        booklist={booklist}
+        setBookList={handleSetBookList}
+      />
     </div>
   );
 }
