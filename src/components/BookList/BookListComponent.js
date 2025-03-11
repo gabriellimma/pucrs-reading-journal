@@ -34,11 +34,15 @@ function BookListComponent(props) {
                             <p value={book.ISBN10}>
                                 <b>ISBN-10:</b> {book.ISBN10}
                             </p>
-                            <a href={book.linkCompra} target="_blank" rel="noopener noreferrer">
-                                <button style={{ color: "green", cursor: "pointer" }}>
-                                    comprar
-                                </button>
-                            </a>
+                            {
+                                book.linkCompra && book.linkCompra !== '' &&
+                                <a href={book.linkCompra} target="_blank" rel="noopener noreferrer">
+                                    <button style={{ color: "green", cursor: "pointer" }}>
+                                        comprar
+                                    </button>
+                                </a>
+                            }
+
                             <button style={{ color: "red", cursor: "pointer" }} onClick={() => { handleRemoveBook(book.ISBN10) }}>
                                 remover
                             </button>

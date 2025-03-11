@@ -21,13 +21,25 @@ function BookFormComponent(props) {
         });
     };
 
+    const isDuplicate = (book, booklist) => {
+        return booklist.find(item => item.ISBN10 === book.ISBN10) ? true : false
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newBookList = [...props.booklist, book]
-        props.setBookList(newBookList);
+        if(!isDuplicate(book, props.booklist)){
+            const newBookList = [...props.booklist, book]
+            props.setBookList(newBookList);
+        } else {
+            alert(`O livro com o mesmo ISBN10 já está cadastrado.`)
+        }
     };
 
     return (
+        <>
+                <h2>
+            Cadastro de livro
+        </h2>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Nome:</label>
@@ -85,6 +97,7 @@ function BookFormComponent(props) {
             </div>
             <button type="submit">Cadastrar Livro</button>
         </form>
+        </>
     )
 }
 
