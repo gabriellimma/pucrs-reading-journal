@@ -33,7 +33,7 @@ Os componentes estão no diretório `./src/components` e eles possuem as seguint
     - booklist: um array com a lista de livros;
     - setBookList: função para atualizar a lista de livros;
     - inputNameRef: referência para o input de nome do livro;
-  - Descrição: este componente é responsável por cadastrar novos livros na lista.
+  - Descrição: este componente é responsável por cadastrar novos livros na lista e também é responsável por validações de campos requeridos, se existem duplicatas ou se algum valor foi inserido incorretamente.
 
 - BookListComponent:
   - `props`
