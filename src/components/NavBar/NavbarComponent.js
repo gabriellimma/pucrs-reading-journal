@@ -1,6 +1,8 @@
+import './NavbarComponent.css';
+
 function NavbarComponent(props) {
     return (
-        <nav style={{padding: "1em", backgroundColor: "#282c34", color: "white"}}>
+        <nav className={"navbar"}>
             {props.menuItems.map((item) =>
                 <a 
                     href={item.menuLink} 

@@ -5,11 +5,11 @@ import React from "react";
  * @param {{message: string}} props
  * @returns component
  */
-function InicioComponent(props) {
+function TitleComponent(props) {
 
     return (
         <header className="App-header">
-            <h1 >
+            <h1 id={props.titleID} style={{scrollMarginTop: "80px"}}>
                 {props.title}
             </h1>
             {props.paragraph ?
@@ -23,4 +23,4 @@ function InicioComponent(props) {
     )
 }
 
-export default InicioComponent;
+export default TitleComponent;

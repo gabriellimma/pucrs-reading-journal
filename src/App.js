@@ -1,29 +1,35 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './App.css';
 import BookFormComponent from './components/BookForm/BookFormComponent';
 import BookListComponent from './components/BookList/BookListComponent';
-import InicioComponent from './components/InicioComponent/InicioComponent';
+import TitleComponent from './components/TitleComponent/TitleComponent';
 import NavbarComponent from './components/NavBar/NavbarComponent';
 import rawBooklist from './data/booklist.json'
 
 function App() {
 
+  const inputNameRef = useRef(null)
+
+  const focusOnInputName = () => {
+      inputNameRef.current.focus()
+  }
+
   const newMenuItens = [
     {
       menuName: "Inicio",
-      menuLink: "home"
+      menuLink: "#inicio"
     },
     {
       menuName: "Sobre",
-      menuLink: "#_"
+      menuLink: "#sobre"
     },
     {
       menuName: "Lista de Livros",
-      menuLink: "#_"
+      menuLink: "#lista_de_livros"
     },
     {
       menuName: "Cadastrar Livro",
-      menuLink: "#_"
+      menuLink: "#cadastrar_livro"
     }
   ]
 
@@ -40,17 +46,26 @@ function App() {
       <NavbarComponent
         menuItems={newMenuItens}
       />
-      <InicioComponent
+      <TitleComponent
         title={"Página Inicial"}
         paragraph={"Bem-vindo ao Reading Journal!"}
+        titleID={"inicio"}
+      />
+      <hr />
+      <TitleComponent
+        title={"Sobre"}
+        paragraph={"Ess'ta uma uma aplicação para um CRUD de um Reading Journal. Este projeto foi elaborado na Disciplina Desenvolvimento de Sistemas Frontend do Curso de Graduação Online da PUCRS."}
+        titleID={"sobre"}
       />
       <BookListComponent
         booklist={booklist}
         setBookList={handleSetBookList}
+        focusFunction={focusOnInputName}
       />
       <BookFormComponent
         booklist={booklist}
         setBookList={handleSetBookList}
+        inputNameRef={inputNameRef}
       />
     </div>
   );

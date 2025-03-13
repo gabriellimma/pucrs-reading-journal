@@ -1,3 +1,5 @@
+import "./BookListComponent.css"
+
 function BookListComponent(props) {
 
     const handleRemoveBook = (isbn) => {
@@ -9,16 +11,17 @@ function BookListComponent(props) {
     }
 
     return (
-        <>
-            <h2>
+        <section id="lista_de_livros">
+            <hr />
+            <h1 className="title">
                 Lista de livros:
-            </h2>
+            </h1>
             {
                 //valida se a lista de livros está vazia antes de renderizar
                 props.booklist.length > 0 ?
                     props.booklist.map((book) =>
                         <div key={book.ISBN10}>
-                            <hr></hr>
+
                             <h3>
                                 {book.nome}
                             </h3>
@@ -51,17 +54,19 @@ function BookListComponent(props) {
                                     Buscar Autor no Google
                                 </button>
                             </a>
+                            <hr />
                         </div>
+
                     ) :
                     <p>
                         Ops... Parece que sua lista de livros está vazia 🙁<br />
-                        <a href="#_">
+                        <button onClick={props.focusFunction}>
                             cadastrar livro
-                        </a>
+                        </button>
                     </p>
             }
 
-        </>
+        </section>
     )
 }
 

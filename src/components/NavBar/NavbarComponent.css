@@ -1,0 +1,19 @@
+.navbar {
+    background-color: #282c34;
+    padding: 1em;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.menuLink {
+    padding: 1em;
+    margin-top: 1em;
+    color: white;
+    font-weight: bold;
+    min-height: 3vh;
+    text-decoration: none;
+}
