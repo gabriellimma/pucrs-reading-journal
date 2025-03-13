@@ -54,7 +54,7 @@ function App() {
       <hr />
       <TitleComponent
         title={"Sobre"}
-        paragraph={"Ess'ta uma uma aplicação para um CRUD de um Reading Journal. Este projeto foi elaborado na Disciplina Desenvolvimento de Sistemas Frontend do Curso de Graduação Online da PUCRS."}
+        paragraph={"Esta é uma uma aplicação para um CRUD de um Reading Journal. Este projeto foi elaborado na Disciplina Desenvolvimento de Sistemas Frontend do Curso de Graduação Online da PUCRS."}
         titleID={"sobre"}
       />
       <BookListComponent
