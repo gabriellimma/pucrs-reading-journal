@@ -10,6 +10,12 @@ function BookListComponent(props) {
         }
     }
 
+    const setBookToEdit = (isbn) => {
+        const bookToEdit = props.booklist.find(book => book.ISBN10 === isbn)
+        props.editBook(bookToEdit)
+        props.focusFunction()
+    }
+
     return (
         <section id="lista_de_livros">
             <hr />
@@ -45,15 +51,21 @@ function BookListComponent(props) {
                                     </button>
                                 </a>
                             }
-
-                            <button style={{ color: "red", cursor: "pointer" }} onClick={() => { handleRemoveBook(book.ISBN10) }}>
-                                remover
-                            </button>
                             <a href={`https://www.google.com/search?q=${book.autor}`} target="_blank" rel="noopener noreferrer">
                                 <button style={{ color: "blue", cursor: "pointer" }}>
                                     Buscar Autor no Google
                                 </button>
                             </a>
+                            <button style={{ color: "orange", cursor: "pointer" }}
+                                onClick={() => {
+                                    setBookToEdit(book.ISBN10)
+                                }}
+                            >
+                                editar
+                            </button>
+                            <button style={{ color: "red", cursor: "pointer" }} onClick={() => { handleRemoveBook(book.ISBN10) }}>
+                                remover
+                            </button>
                             <hr />
                         </div>
 

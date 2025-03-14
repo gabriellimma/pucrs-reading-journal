@@ -1,17 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './BookFormComponent.css'
 
 function BookFormComponent(props) {
 
-    const [book, setBook] = useState({
-        nome: '',
-        autor: '',
-        ano: '',
-        categoria: '',
-        ISBN10: '',
-        linkCompra: ''
-    });
+    const [book, setBook] = useState(props.book);
+    const [isEditing, setIsEditing] = useState(false);
 
+    useEffect(() => {
+        setBook(props.book);
+        setIsEditing(!!props.book.ISBN10);
+    }, [props.book]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,15 +23,34 @@ function BookFormComponent(props) {
         return booklist.find(item => item.ISBN10 === book.ISBN10) ? true : false
     }
 
+    const inputClean = () => {
+        setBook({
+            nome: '',
+            autor: '',
+            ano: '',
+            categoria: '',
+            ISBN10: '',
+            linkCompra: ''
+        });
+        setIsEditing(false);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (isDuplicate(book, props.booklist)) {
-            alert(`O livro com o mesmo ISBN10 já está cadastrado.`)
-        } else if(!/^\d{4}$/.test(book.ano)) {
+
+        if (!/^\d{4}$/.test(book.ano)) {
             alert("O ano deve conter exatamente 4 dígitos numéricos. ex: 2025")
+        } else if (isDuplicate(book, props.booklist) && isEditing) {
+            const filteredBooklist = [...props.booklist].filter(item => item.ISBN10 !== book.ISBN10)
+            const newBooklist = [...filteredBooklist, book]
+            props.setBookList(newBooklist)
+            inputClean()
+        } else if (isDuplicate(book, props.booklist) && !isEditing) {
+            alert("Já existe um livro com o mesmo ISBN-10. Se quiser altera-lo faça através do botão \"editar\".")
         } else {
             const newBookList = [...props.booklist, book]
             props.setBookList(newBookList);
+            inputClean()
         }
     };
 
@@ -99,6 +116,7 @@ function BookFormComponent(props) {
                         onChange={handleChange}
                         placeholder="Digite o ISBN-10 do livro"
                         maxLength={10}
+                        disabled={isEditing}
                     />
                 </div>
                 <div>
@@ -113,6 +131,12 @@ function BookFormComponent(props) {
                 </div>
                 <br />
                 <button type="submit">Cadastrar Livro</button>
+                <button
+                    onClick={inputClean}
+                    style={{ color: "red" }}
+                >
+                    Limpar Formulário
+                </button>
             </form>
         </div>
     )

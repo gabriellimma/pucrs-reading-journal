@@ -4,7 +4,7 @@ Para executar este projeto:
 
 1. Entre na pasta do projeto no terminal:
 ```
-cd local-baixado/pucrs-reading-journal/pucrs-reading-journal
+cd local-baixado/pucrs-reading-journal
 ```
 
 2. Rode npm install para instalar as dependências do projeto:
@@ -33,14 +33,17 @@ Os componentes estão no diretório `./src/components` e eles possuem as seguint
     - booklist: um array com a lista de livros;
     - setBookList: função para atualizar a lista de livros;
     - inputNameRef: referência para o input de nome do livro;
-  - Descrição: este componente é responsável por cadastrar novos livros na lista e também é responsável por validações de campos requeridos, se existem duplicatas ou se algum valor foi inserido incorretamente.
+    - book: objeto com as informações do livro a ser editado;
+    - setBook: função para atualizar o estado do livro a ser editado;
+  - Descrição: este componente é responsável por cadastrar novos livros na lista e também é responsável por validações de campos requeridos ou se algum valor foi inserido incorretamente. Também permite a edição de livros existentes.
 
 - BookListComponent:
   - `props`
     - booklist: um array com a lista de livros;
     - setBookList: função para atualizar a lista de livros;
     - focusFunction: função para focar no input de nome do livro;
-  - Descrição: este componente é responsável por listar os livros cadastrados, permitir a remoção de livros, buscar pelo autor ou comprar o livro no link cadastrado.
+    - editBook: função para definir o livro a ser editado;
+  - Descrição: este componente é responsável por listar os livros cadastrados, permitir a remoção de livros, buscar pelo autor ou comprar o livro no link cadastrado. Também permite a edição de livros existentes.
 
 - TitleComponent:
   - `props`

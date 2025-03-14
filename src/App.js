@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './App.css';
 import BookFormComponent from './components/BookForm/BookFormComponent';
 import BookListComponent from './components/BookList/BookListComponent';
@@ -9,10 +9,6 @@ import rawBooklist from './data/booklist.json'
 function App() {
 
   const inputNameRef = useRef(null)
-
-  const focusOnInputName = () => {
-      inputNameRef.current.focus()
-  }
 
   const newMenuItens = [
     {
@@ -35,11 +31,27 @@ function App() {
 
   const [booklist, setBookList] = useState(rawBooklist)
 
+  const [book, setBook] = useState({
+    nome: '',
+    autor: '',
+    ano: '',
+    categoria: '',
+    ISBN10: '',
+    linkCompra: ''
+  });
+
+  function handleEdit(item) {
+    setBook(item)
+  }
+
+  const focusOnInputName = () => {
+    inputNameRef.current.focus()
+  }
+
   const handleSetBookList = (newBookList) => {
     console.log('Atualizando lista de livros:', newBookList);
     setBookList(newBookList);
   };
-
 
   return (
     <div className="App">
@@ -60,10 +72,13 @@ function App() {
       <BookListComponent
         booklist={booklist}
         setBookList={handleSetBookList}
+        editBook={handleEdit}
         focusFunction={focusOnInputName}
       />
       <BookFormComponent
         booklist={booklist}
+        book={book}
+        setBook={setBook}
         setBookList={handleSetBookList}
         inputNameRef={inputNameRef}
       />
